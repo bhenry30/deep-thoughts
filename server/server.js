@@ -1,9 +1,9 @@
 const express = require('express');
 // import ApolloServer
-const { ApolloServer } = require('apollo-server-express');
+const {ApolloServer} = require('apollo-server-express');
 
 // import our typeDefs and resolvers
-const { typeDefs, resolvers } = require('./schemas');
+const { typeDefs, resolvers } = require('../server/schemas');
 const db = require('../config/connection');
 
 const PORT = process.env.PORT || 3001;
@@ -30,4 +30,5 @@ db.once('open', () => {
 });
 }
 
+// start the server
 startApolloServer(typeDefs, resolvers);
